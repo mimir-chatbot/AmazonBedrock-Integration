@@ -33,7 +33,6 @@ class CustomBedrock(ChatBedrock):
                     "trace": settings["guardrails_trace"],
                 }
 
-        kwargs["model_kwargs"] = {"temperature": kwargs["temperature"]}
         input_kwargs = {
             "region_name": kwargs["region_name"],
             "model_id": kwargs["model_id"],
@@ -50,7 +49,6 @@ class AmazonBedrockConfig(LLMSettings):
     model_id: str
     endpoint_url: str
     credentials_profile_name: str
-    temperature: float = 0.7
     streaming: bool = True
 
     _pyclass: Type = CustomBedrock
